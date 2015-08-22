@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'sessions/create'
   get 'sessions/destroy'
   get 'users/new'
+  post 'users/create'
   root 'dashboards#show'
 
 

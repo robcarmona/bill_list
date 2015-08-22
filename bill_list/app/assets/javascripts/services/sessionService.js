@@ -6,10 +6,19 @@
             factory = {};
 
         /*
-         * OAuth create user request
+         * Login
          */
-        factory.postForm = function (user) {
+        factory.loginForm = function (user) {
             return $http.post(serviceBase + "create", user).then(function (results) {
+                return results;
+            });
+        };
+
+        /*
+         * Create user
+         */
+        factory.createUserForm = function (user) {
+            return $http.post("/users/create", user).then(function (results) {
                 return results;
             });
         };

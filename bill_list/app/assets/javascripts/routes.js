@@ -6,8 +6,14 @@ billList.config(function ($routeProvider) {
     templateUrl:  templateBase + 'dashboard/index.html'
   })
   .when('/login', {
-    templateUrl: templateBase + 'login.html',
+    templateUrl: templateBase + 'user/login.html',
     controller: "sessionController"
-  });
+  })
+  .when('/signup', {
+    templateUrl: templateBase + "user/create.html",
+    controller: "userController"
+  })
+
+  ;
 
 });
