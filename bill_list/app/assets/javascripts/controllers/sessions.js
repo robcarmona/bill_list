@@ -1,4 +1,4 @@
-billList.controller('sessionController', ['$scope', '$location', 'sessionService', function($scope, $location, sessionService) {
+billList.controller('sessionController', ['$scope', '$location', 'requestService', function($scope, $location, requestService) {
 
   $scope.page = {
     title: "Login"
@@ -9,10 +9,10 @@ billList.controller('sessionController', ['$scope', '$location', 'sessionService
   };
 
   $scope.submit = function() {
-    console.log($scope.user);
-    debugger;
-    sessionService.loginForm($scope.user).then(function(result) {
-      console.log(result);
+    requestService.loginForm($scope.user).then(function(result) {
+      if(result.data.success) {
+        $location.path("/");
+      }
     });
 
   };

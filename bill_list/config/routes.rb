@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   post 'sessions/create'
-  get 'sessions/destroy'
+  delete 'sessions/destroy'
   get 'users/new'
   post 'users/create'
   root 'dashboards#show'
+  get 'dashboards/index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

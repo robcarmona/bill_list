@@ -1,4 +1,4 @@
-billList.controller('userController', ['$scope', '$location', 'sessionService', function($scope, $location, sessionService) {
+billList.controller('userController', ['$scope', '$location', 'requestService', function($scope, $location, requestService) {
 
   $scope.page = {
     title: "Sign Up"
@@ -9,8 +9,10 @@ billList.controller('userController', ['$scope', '$location', 'sessionService', 
   };
 
   $scope.submit = function() {
-    sessionService.createUserForm($scope.user).then(function(result) {
-      console.log(result);
+    requestService.createUserForm($scope.user).then(function(result) {
+      if(result.data.success) {
+        $location.path("/");
+      }
     });
 
   };
