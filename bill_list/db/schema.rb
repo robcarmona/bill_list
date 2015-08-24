@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823020132) do
+ActiveRecord::Schema.define(version: 20150824010212) do
 
   create_table "bills", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name",        limit: 255
     t.datetime "due"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.boolean  "active",     limit: 1,   default: true
-    t.integer  "user_id",    limit: 4,                  null: false
+    t.datetime "created_at",                                                       null: false
+    t.datetime "updated_at",                                                       null: false
+    t.boolean  "active",      limit: 1,                             default: true
+    t.integer  "user_id",     limit: 4,                                            null: false
+    t.string   "logo_url",    limit: 255
+    t.string   "company_url", limit: 255
+    t.string   "payer",       limit: 255
+    t.decimal  "amount",                  precision: 30, scale: 10
   end
 
   create_table "users", force: :cascade do |t|
