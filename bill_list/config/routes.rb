@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'users/create'
   root 'dashboards#show'
   get 'dashboards/index'
+  post 'bills/create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
