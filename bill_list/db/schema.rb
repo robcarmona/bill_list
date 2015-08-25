@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824010212) do
+ActiveRecord::Schema.define(version: 20150824011732) do
+
+  create_table "bill_histories", force: :cascade do |t|
+    t.decimal  "amount",                 precision: 10
+    t.datetime "paid_date"
+    t.string   "payer",      limit: 255
+    t.integer  "bill_id",    limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  add_index "bill_histories", ["bill_id"], name: "index_bill_histories_on_bill_id", using: :btree
 
   create_table "bills", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -34,4 +45,5 @@ ActiveRecord::Schema.define(version: 20150824010212) do
     t.datetime "updated_at",                  null: false
   end
 
+  add_foreign_key "bill_histories", "bills"
 end
