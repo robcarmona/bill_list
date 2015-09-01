@@ -1,1 +1,1 @@
-var billList = angular.module('billList', ['ngRoute', 'ngResource']);
+var billList = angular.module('billList', ['ngRoute', 'ngResource', 'ui.bootstrap']);

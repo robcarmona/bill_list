@@ -21,4 +21,5 @@
 //= require_tree ./services
 //= require_tree ./controllers
 //= require directives.js
+//= require angular-ui-bootstrap-tpls
 //= require_tree .
