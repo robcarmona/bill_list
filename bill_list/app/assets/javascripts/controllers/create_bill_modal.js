@@ -9,7 +9,7 @@
 
         // Open Event Modal
         $scope.open = function (size) {
-            $scope.newEvent = {};
+            $scope.newBill = {};
 
             var modalInstance = $modal.open({
                 animation: true,
@@ -17,8 +17,8 @@
                 controller: 'ModalCreateBillInstanceCtrl',
                 size: size,
                 resolve: {
-                    newEvent: function () {
-                        return $scope.newEvent;
+                    newBill: function () {
+                        return $scope.newBill;
                     }
                 }
             });
@@ -26,31 +26,7 @@
             // Create Event
             modalInstance.result.then(function () {
               console.log("Results");
-            }, function () {
-                // Cancelled modal
-            })['finally'](function () {
-                // Fixes page bug when closing modal
-            });
-
-        };
-
-
-        // Open Rsvp Modal
-        $scope.openRsvpModal = function (event, size) {
-            var modalInstance = $modal.open({
-                animation: true,
-                templateUrl: 'app/connectApp/partials/group/_groupRsvpResponses.html',
-                controller: 'ModalRsvpResponsesInstanceCtrl',
-                resolve: {
-                    currentEvent: function () {
-                        return event;
-                    }
-                }
-            });
-
-            // Create Event
-            modalInstance.result.then(function () {
-               // after close
+              console.log($scope.newBill);
             }, function () {
                 // Cancelled modal
             })['finally'](function () {
@@ -63,22 +39,22 @@
     };
 
 
-
-
     // Add this controller
     BillController.$inject = injectParams;
     angular.module('billList').controller('BillController', BillController);
 
-
-
     /*
      * Create Event Modal
      */
-    var createBillParams = ['$scope', '$modalInstance', 'newEvent'];
-    var ModalCreateBillInstanceCtrl = function ($scope, $modalInstance, newEvent) {
+    var createBillParams = ['$scope', '$modalInstance', 'newBill'];
+    var ModalCreateBillInstanceCtrl = function ($scope, $modalInstance, newBill) {
+        $scope.bill = newBill;
         // Create and close
         $scope.ok = function () {
           console.log("OK PRESSED");
+          //console.log($scope.newBill);
+
+          $modalInstance.close();
         };
 
         // Dismiss window
