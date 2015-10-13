@@ -1,5 +1,6 @@
-billList.controller('sessionController', ['$scope', '$location', 'requestService', function($scope, $location, requestService) {
+billList.controller('sessionController', ['$scope', '$location', '$http', function($scope, $location, $http) {
 
+  var base_url = "/sessions/";
   $scope.page = {
     title: "Login"
   };
@@ -8,14 +9,20 @@ billList.controller('sessionController', ['$scope', '$location', 'requestService
 
   };
 
-  $scope.submit = function() {
-    requestService.loginForm($scope.user).then(function(result) {
-      if(result.data.success) {
-        $location.path("/");
+  /*
+   * Login
+   */
+  $scope.loginSubmit = function() {
+    $http.post(base_url + "create", $scope.user).then(function (results) {
+      response = results.data;
+      if(response.success) {
+        window.location = response.redirect;
+      } else {
+        alert("Failed Login, Please Try Again.");
       }
     });
-
   };
+
   $scope.user = {};
 
   $scope.init();

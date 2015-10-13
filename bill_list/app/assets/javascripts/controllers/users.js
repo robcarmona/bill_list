@@ -9,21 +9,10 @@ billList.controller('userController', ['$scope', '$location', 'requestService', 
   };
 
   $scope.submit = function() {
-    requestService.loginForm($scope.user).then(function(result) {
-      console.log(result);
-      response = result.data;
-      if(response.success) {
-        window.location = response.redirect;
-        //return;
-      } else {
-        alert("Failed Login, Please Try Again.");
-      }
 
-
-    });
 
   };
-  $scope.user = {};
 
+  $scope.user = {};
   $scope.init();
 }]);

@@ -6,16 +6,6 @@
             factory = {};
 
         /*
-         * Login
-         */
-        factory.loginForm = function (user) {
-            return $http.post(serviceBase + "create", user).then(function (results) {
-                return results;
-            });
-        };
-
-
-        /*
          * Delete session
          */
         factory.logOut = function (user) {
