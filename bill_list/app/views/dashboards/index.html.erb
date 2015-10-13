@@ -1,0 +1,24 @@
+
+<div class="col-xs-12" ng-controller="dashboardController">
+  <user-nav></user-nav>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1> Welcome {{ user.email }} </h>
+    </div>
+    <div class="col-xs-12">
+      <div ng-controller="BillController">
+        <button class="btn btn-success" ng-click="open('lg')">
+          <span class="glyphicon glyphicon-plus" ></span>
+            Create New Bill
+          </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var dashboardIndex = {
+  navBar: "<%= j render :partial => 'dashboards/nav' %>",
+  createBill: "<%= j render :partial => 'bills/create' %>"
+};
+</script>

@@ -11,15 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824011732) do
+ActiveRecord::Schema.define(version: 20151012231908) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "bill_histories", force: :cascade do |t|
-    t.decimal  "amount",                 precision: 10
+    t.decimal  "amount",               precision: 10
     t.datetime "paid_date"
-    t.string   "payer",      limit: 255
     t.integer  "bill_id",    limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "bill_histories", ["bill_id"], name: "index_bill_histories_on_bill_id", using: :btree
@@ -33,8 +38,8 @@ ActiveRecord::Schema.define(version: 20150824011732) do
     t.integer  "user_id",     limit: 4,                                            null: false
     t.string   "logo_url",    limit: 255
     t.string   "company_url", limit: 255
-    t.string   "payer",       limit: 255
     t.decimal  "amount",                  precision: 30, scale: 10
+    t.integer  "account_id",  limit: 4
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150824011732) do
     t.string   "password_digest", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "account_id",      limit: 4,   null: false
   end
 
   add_foreign_key "bill_histories", "bills"

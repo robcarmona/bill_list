@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
+  root 'dashboards#index'
+
   get 'sessions/new'
   post 'sessions/create'
   delete 'sessions/destroy'
   get 'users/new'
   post 'users/create'
-  root 'dashboards#show'
+  get 'users/signin'
   get 'dashboards/index'
   post 'bills/create'
+
+  #resources :users
+  #resources :sessions
 
 
   # The priority is based upon order of creation: first created -> highest priority.

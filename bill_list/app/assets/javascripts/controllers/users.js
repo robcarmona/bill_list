@@ -1,7 +1,7 @@
 billList.controller('userController', ['$scope', '$location', 'requestService', function($scope, $location, requestService) {
 
   $scope.page = {
-    title: "Sign Up"
+    title: "Sign In"
   };
 
   $scope.init = function() {
@@ -9,10 +9,17 @@ billList.controller('userController', ['$scope', '$location', 'requestService', 
   };
 
   $scope.submit = function() {
-    requestService.createUserForm($scope.user).then(function(result) {
-      if(result.data.success) {
-        $location.path("/");
+    requestService.loginForm($scope.user).then(function(result) {
+      console.log(result);
+      response = result.data;
+      if(response.success) {
+        window.location = response.redirect;
+        //return;
+      } else {
+        alert("Failed Login, Please Try Again.");
       }
+
+
     });
 
   };

@@ -15,8 +15,10 @@ billList.controller('dashboardController', ['$scope', '$location', 'requestServi
    */
   $scope.logout = function() {
     requestService.logOut().then(function(result) {
-      $location.path("/");
-    } );
+        window.location = "/";
+    });
   };
+
+  console.log("TEST SESSION CONTROLLER");
 
 }]);

@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create({ name: "test", email: "test@test.com", password: "Password1" })
-Bill.create({ name: "Nipsco", due: 1.day.ago, active: true, user_id: 1, company_url: "http://nipsco.com", payer: "test", amount: 100.50 })
-BillHistory.create({amount: 100.50, paid_date: 1.hour.ago, payer: "test", bill_id: 1})
+account = Account.create(name: "Manage Our Bills")
+User.create({ name: "test", email: "test@test.com", password: "Password1", account_id: account.id })
+Bill.create({ name: "Nipsco", due: 1.day.ago, active: true, user_id: 1, company_url: "http://nipsco.com", account_id: account.id, amount: 100.50 })
+BillHistory.create({amount: 100.50, paid_date: 1.hour.ago, bill_id: 1})

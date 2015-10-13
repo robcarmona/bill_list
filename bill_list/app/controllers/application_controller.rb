@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
-    render :json => { success: false }, :status => :unauthorized unless current_user
+    redirect_to users_signin_path unless current_user
   end
 
 end
