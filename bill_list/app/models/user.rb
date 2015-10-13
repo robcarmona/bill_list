@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :bills
   has_many :bill_histories, :through => :bills
+  belongs_to :account
 
   # Exclude password info from json output.
   def to_json(options={})
