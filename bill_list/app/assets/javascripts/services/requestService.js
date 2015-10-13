@@ -6,15 +6,6 @@
             factory = {};
 
         /*
-         * Delete session
-         */
-        factory.logOut = function (user) {
-            return $http.delete(serviceBase + "destroy").then(function (results) {
-                return results;
-            });
-        };
-
-        /*
          * Create user
          */
         factory.createUserForm = function (user) {

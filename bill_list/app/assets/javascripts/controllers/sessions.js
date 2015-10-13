@@ -23,6 +23,16 @@ billList.controller('sessionController', ['$scope', '$location', '$http', functi
     });
   };
 
+  /*
+   * Logout
+   */
+   $scope.logoutSubmit = function() {
+     $http.delete(base_url + "destroy").then(function (results) {
+       window.location = "/";
+     });
+   };
+
+
   $scope.user = {};
 
   $scope.init();
