@@ -24,14 +24,15 @@
     <div ng-repeat="bill in bills" class="col-xs-4">
       <div class="panel panel-primary bill-due">
         <div class="panel-heading">
-          <h3 class="panel-title"> {{ bill.name }} </h3>
+          <b class="panel-title"> {{ bill.name }} </b>  ({{ bill.amount | currency }})
+          <span class="glyphicon glyphicon-unchecked pull-right"></span>
         </div>
         <div class="panel-body">
           <div class="col-xs-12">
             <img ng-src="{{ bill.logo_url }}" class="img-thumbnail">
           </div>
           <div class="col-xs-12">
-            <label> Amount: </label> <b>{{ bill.amount | currency }}</b>
+            <label> Last Payment: </label> <b>{{ bill.last_payment.amount | currency }}</b>
           </div>
         </div>
       </div>

@@ -11,8 +11,8 @@ billList.controller('dashboardController', ['$scope', '$location', '$http', 'req
     $location.path("/login");
   });
 
-  $http.get("/bills/show").then(function (results) {
-      $scope.bills = results.data.data;
+  $http.get("/bills/show.json").then(function (results) {
+      $scope.bills = results.data;
       console.log(results);
   });
 

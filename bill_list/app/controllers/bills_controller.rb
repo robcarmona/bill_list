@@ -5,7 +5,9 @@ class BillsController < ApplicationController
   end
 
   def show
-    render :json => { data: current_user.bills }
+    respond_to do |format|
+      format.json { render json: current_user.bills.to_json(:methods => :last_payment)  }
+    end
   end
 
   private
