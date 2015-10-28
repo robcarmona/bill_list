@@ -1,47 +1,47 @@
-<form name="form" novalidate>
+<form name="form" role="form" novalidate>
     <div class="modal-header">
         <h3 class="modal-title">New Bill</h3>
     </div>
     <div class="modal-body">
 
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 form-group">
           <div class="col-xs-3">
             <label for="name">Name</label>
           </div>
           <div class="col-xs-3">
-            <input type="text" ng-model="bill.name" id="name" />
+            <input type="text" class="form-control" ng-model="bill.name" id="name" />
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 form-group">
 
           <div class="col-xs-3">
             <label for="company_url">Company Url</label>
           </div>
           <div class="col-xs-3">
-            <input type="text" ng-model="bill.company_url" id="company_url" />
+            <input type="text" class="form-control" ng-model="bill.company_url" id="company_url" />
           </div>
 
           <div class="col-xs-3">
             <label for="logo_url">Company Logo Url</label>
           </div>
           <div class="col-xs-3">
-            <input type="text" ng-model="bill.logo_url" id="logo_url" />
+            <input type="text" class="form-control" ng-model="bill.logo_url" id="logo_url" />
           </div>
 
         </div>
       </div>
 
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 form-group">
           <div class="col-xs-3">
             <label for="amount">Standard Amount</label>
           </div>
           <div class="col-xs-3">
-            <input type="text" ng-model="bill.amount" id="amount">
+            <input type="text" class="form-control" ng-model="bill.amount" id="amount">
           </div>
         </div>
       </div>

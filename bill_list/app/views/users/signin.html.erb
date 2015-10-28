@@ -8,9 +8,9 @@
       </div>
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
-          <form ng-submit="loginSubmit()">
+          <form ng-submit="loginSubmit()" role="form">
             <label for="email">Email</label>
-            <input type="emsail" class="form-control" ng-model="user.email" name="text" id="email"/>
+            <input type="email" class="form-control" ng-model="user.email" name="text" id="email"/>
             <label for="password">Password</label>
             <input type="password" class="form-control" ng-model="user.password" name="text" id="password" />
             <input type="submit" class="btn btn-default signin-btn" id="submit" value="{{ page.title }}" />

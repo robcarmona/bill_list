@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/signin'
   get 'dashboards/index'
   post 'bills/create'
+  get 'bills/show'
 
   #resources :users
   #resources :sessions
