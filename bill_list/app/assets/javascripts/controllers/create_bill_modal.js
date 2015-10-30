@@ -1,10 +1,20 @@
 (function () {
-    var injectParams = ['$location', '$filter', '$window', '$timeout', '$scope', '$routeParams', '$modal', 'requestService'];
+    var injectParams = [
+      '$location',
+      '$filter',
+      '$window',
+      '$timeout',
+      '$scope',
+      '$routeParams',
+      '$modal',
+      '$http',
+      'requestService'];
 
-    var BillController = function ($location, $filter, $window, $timeout, $scope, $routeParams, $modal, requestService) {
+    var BillController = function ($location, $filter, $window, $timeout, $scope, $routeParams, $modal, $http, requestService) {
 
         function init() {
           console.log("modal init");
+          console.log($scope.bills);
         }
 
         // Open Event Modal
@@ -27,12 +37,16 @@
             modalInstance.result.then(function () {
               console.log("Results");
               console.log($scope.newBill);
+              console.log($scope.bills);
+              debugger;
+              $http.post("/bills/create", { bill: $scope.newBill }).then(function (results) {
+                console.log(results);
+                //return results;
+              });
+
             }, function () {
                 // Cancelled modal
-            })['finally'](function () {
-                // Fixes page bug when closing modal
             });
-
         };
 
         init();
