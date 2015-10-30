@@ -1,6 +1,7 @@
 class BillsController < ApplicationController
   def create
     bill = Bill.new(bill_params)
+    bill.user_id = current_user.id
     render :json => { success: bill.save }
   end
 
