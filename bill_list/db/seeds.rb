@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 account = Account.create(name: "Manage Our Bills")
 User.create({ name: "test", email: "test@test.com", password: "Password1", account_id: account.id })
-Bill.create({ name: "Nipsco", due: 1.day.ago, active: true, user_id: 1, company_url: "", logo_url: "https://makerfairefortwayne.files.wordpress.com/2012/10/nipsco-color-logo-x-large.jpg", account_id: account.id, amount: 100.50 })
+Bill.create({ name: "Nipsco", due: 1.day.ago, active: true, user_id: 1, company_url: "", logo_url: "https://makerfairefortwayne.files.wordpress.com/2012/10/nipsco-color-logo-x-large.jpg", amount: 100.50 })
 BillHistory.create(
   [{ amount: 100.50, paid_date: 1.hour.ago, bill_id: 1 },
   { amount: 61.50, paid_date: 1.month.ago, bill_id: 1 }]

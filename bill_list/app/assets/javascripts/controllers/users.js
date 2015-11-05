@@ -5,12 +5,9 @@ billList.controller('userController', ['$scope', '$location', 'requestService', 
   };
 
   $scope.init = function() {
-
   };
 
   $scope.submit = function() {
-
-
   };
 
   $scope.user = {};

@@ -12,8 +12,8 @@ billList.controller('dashboardController', ['$scope', '$location', '$http', 'req
   });
 
   $http.get("/bills/show.json").then(function (results) {
-      $scope.bills = results.data;
-      console.log(results);
+      $scope.bills = {};
+      $scope.bills.data = results.data;
   });
 
   $scope.todaysDate = new Date();

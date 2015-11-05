@@ -35,17 +35,10 @@
 
             // Create Event
             modalInstance.result.then(function () {
-              console.log("Results");
-              console.log($scope.newBill);
-              console.log($scope.bills);
-              debugger;
               $http.post("/bills/create", { bill: $scope.newBill }).then(function (results) {
-                console.log(results);
-                //return results;
+                $scope.bills.data = results.data
               });
 
-            }, function () {
-                // Cancelled modal
             });
         };
 
