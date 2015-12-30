@@ -19,6 +19,10 @@ class BillsController < ApplicationController
   def update
   end
 
+  def partial
+    render :partial => params[:name]
+  end
+
   private
   def bill_params
     params.require(:bill).permit(:name, :due, :user_id, :logo_url, :company_url, :amount)

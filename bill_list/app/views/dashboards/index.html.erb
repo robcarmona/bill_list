@@ -24,7 +24,7 @@
     <div ng-repeat="bill in bills.data" class="col-md-4">
       <div class="panel panel-primary bill-panel bill-due">
         <div class="panel-heading">
-          <b class="panel-title"> {{ bill.name }} </b>  ({{ bill.amount | currency }})
+          <b class="panel-title"> {{ bill.name }} </b>
           <span class="glyphicon glyphicon-unchecked pull-right bill-icon"></span>
           <span class="glyphicon glyphicon-cog pull-right bill-icon"></span>
         </div>
@@ -33,6 +33,7 @@
             <img ng-src="{{ bill.logo_url }}" class="img-thumbnail bill-logo">
           </div>
           <div class="col-xs-12" ng-cloak>
+            <div class="row"><label> Due: </label> <b> {{ bill.amount }}</b></div>
             <div class="row"><label> Last Payment: </label> <b>{{ bill.last_payment.amount | currency }}</b></div>
             <div class="row"><label> Last Paid Date: </label> <b>{{ bill.last_payment.paid_date | date: "MM/dd/yyyy" }}</b></div>
           </div>
@@ -46,7 +47,6 @@
 
 <script>
 var dashboardIndex = {
-  navBar: "<%= j render :partial => 'dashboards/nav' %>",
-  createBill: "<%= j render :partial => 'bills/create' %>"
+  navBar: "<%= j render :partial => 'dashboards/nav' %>"
 };
 </script>

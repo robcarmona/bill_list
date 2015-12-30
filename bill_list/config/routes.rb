@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'dashboards/index'
   post 'bills/create'
   get 'bills/show'
+  get 'bills/partials/:name' => 'bills#partial'
 
   #resources :users
   #resources :sessions

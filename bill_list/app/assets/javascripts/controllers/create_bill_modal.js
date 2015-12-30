@@ -23,7 +23,7 @@
 
             var modalInstance = $modal.open({
                 animation: true,
-                template: dashboardIndex.createBill,
+                templateUrl: "/bills/partials/create",
                 controller: 'ModalCreateBillInstanceCtrl',
                 size: size,
                 resolve: {
