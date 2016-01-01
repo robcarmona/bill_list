@@ -1,4 +1,4 @@
-<form name="form" role="form" novalidate>
+<form name="form" role="form" ng-submit="ok();" novalidate>
     <div class="modal-header">
         <h3 class="modal-title">New Bill</h3>
     </div>
@@ -59,7 +59,7 @@
 
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn btn-orange" ng-click="ok();" ng-disabled="form.$invalid">OK</button>
+        <button type="submit" class="btn btn-orange" ng-disabled="form.$invalid">OK</button>
         <button class="btn btn-default" ng-click="cancel()">Cancel</button>
     </div>
 </form>

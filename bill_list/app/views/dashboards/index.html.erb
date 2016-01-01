@@ -21,22 +21,50 @@
 
   <div class="row">
 
-    <div ng-repeat="bill in bills.data" class="col-md-4">
+    <div ng-repeat="bill in bills.data" class="col-md-3 col-xs-6">
       <div class="panel panel-primary bill-panel bill-due">
         <div class="panel-heading">
           <b class="panel-title"> {{ bill.name }} </b>
-          <span class="glyphicon glyphicon-unchecked pull-right bill-icon"></span>
           <span class="glyphicon glyphicon-cog pull-right bill-icon"></span>
         </div>
         <div class="panel-body">
-          <div class="col-xs-12">
-            <img ng-src="{{ bill.logo_url }}" class="img-thumbnail bill-logo">
+
+          <div class="row">
+            <div class="col-xs-12">
+              <img ng-src="{{ bill.logo_url }}" class="center-block img-thumbnail bill-logo">
+            </div>
           </div>
-          <div class="col-xs-12" ng-cloak>
-            <div class="row"><label> Due: </label> <b> {{ bill.amount }}</b></div>
-            <div class="row"><label> Last Payment: </label> <b>{{ bill.last_payment.amount | currency }}</b></div>
-            <div class="row"><label> Last Paid Date: </label> <b>{{ bill.last_payment.paid_date | date: "MM/dd/yyyy" }}</b></div>
+
+          <div class="section-space">
+
+            <div class="row">
+              <div class="col-sm-6">
+                <label> Due: </label>
+              </div>
+              <div class="col-sm-6">
+                <b> {{ bill.amount | currency }}</b>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <label> Last Payment: </label>
+              </div>
+              <div class="col-sm-6">
+                <b> {{ bill.last_payment.amount | currency }} </b>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <label> Last Paid Date: </label>
+              </div>
+              <div class="col-sm-6">
+                <b> {{ bill.last_payment.paid_date | date: "MM/dd/yyyy" }} </b>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
