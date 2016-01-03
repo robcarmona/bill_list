@@ -1,7 +1,7 @@
 class CreateBillHistories < ActiveRecord::Migration
   def change
     create_table :bill_histories do |t|
-      t.decimal :amount
+      t.decimal :amount, :precision => 30, :scale => 10
       t.datetime :paid_date
       t.string :payer
       # Add user and bill references

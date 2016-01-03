@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 20151031000017) do
   end
 
   create_table "bill_histories", force: :cascade do |t|
-    t.decimal  "amount",               precision: 10
+    t.decimal  "amount",               precision: 30, scale: 10
     t.datetime "paid_date"
     t.integer  "bill_id",    limit: 4
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   add_index "bill_histories", ["bill_id"], name: "index_bill_histories_on_bill_id", using: :btree

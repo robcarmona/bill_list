@@ -56,11 +56,9 @@
     var createBillParams = ['$scope', '$modalInstance', 'newBill'];
     var ModalCreateBillInstanceCtrl = function ($scope, $modalInstance, newBill) {
         $scope.bill = newBill;
+        
         // Create and close
         $scope.ok = function () {
-          console.log("OK PRESSED");
-          //console.log($scope.newBill);
-
           $modalInstance.close();
         };
 
