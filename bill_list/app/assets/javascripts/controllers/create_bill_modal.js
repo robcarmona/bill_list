@@ -7,10 +7,9 @@
       '$scope',
       '$routeParams',
       '$modal',
-      '$http',
-      'requestService'];
+      '$http'];
 
-    var BillController = function ($location, $filter, $window, $timeout, $scope, $routeParams, $modal, $http, requestService) {
+    var BillController = function ($location, $filter, $window, $timeout, $scope, $routeParams, $modal, $http) {
 
         function init() {
           console.log("modal init");
@@ -56,7 +55,7 @@
     var createBillParams = ['$scope', '$modalInstance', 'newBill'];
     var ModalCreateBillInstanceCtrl = function ($scope, $modalInstance, newBill) {
         $scope.bill = newBill;
-        
+
         // Create and close
         $scope.ok = function () {
           $modalInstance.close();

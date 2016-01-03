@@ -11,8 +11,12 @@ Rails.application.routes.draw do
   post 'bills/create'
   get 'bills/show'
 
-  resources :bills
+  resources :bills do
+    resources :bill_histories
+  end
+
   get 'bills/partials/:name' => 'bills#partial'
+  get 'bill_histories/partials/:name' => 'bill_histories#partial'
 
   #resources :users
   #resources :sessions

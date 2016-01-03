@@ -5,7 +5,7 @@ class Bill < ActiveRecord::Base
 
 
   def last_payment
-    self.bill_histories.order(:paid_date).last
+    self.bill_histories.order(:paid_date, :created_at).last
   end
 
 end

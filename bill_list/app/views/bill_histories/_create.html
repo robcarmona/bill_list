@@ -1,0 +1,37 @@
+<form name="form" role="form" ng-submit="ok();" novalidate>
+    <div class="modal-header">
+        <h3 class="modal-title">Paid Bill</h3>
+    </div>
+    <div class="modal-body">
+
+      <div class="row">
+        <div class="col-xs-12 form-group">
+          <div class="col-xs-3">
+            <label for="amounts">Amount</label>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" ng-model="billHistory.amount" id="amount" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 form-group">
+
+          <div class="col-xs-3">
+            <label for="date_paid">Date Paid</label>
+          </div>
+          <div class="col-xs-3">
+            <input type="text" class="form-control" ng-model="billHistory.paid_date" id="date_paid" />
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-orange" ng-disabled="form.$invalid">OK</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+</form>
