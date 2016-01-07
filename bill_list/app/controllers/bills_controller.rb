@@ -2,6 +2,7 @@ class BillsController < ApplicationController
   before_action :set_bill, only: [:update, :edit]
   def create
     bill = Bill.new(bill_params)
+    bill.due = DateTime.strptime(params[:bill][:due], "%m/%d/%Y")
     bill.user_id = current_user.id
     bill.save
     render json: bills_json

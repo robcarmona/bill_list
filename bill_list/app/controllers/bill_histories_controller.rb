@@ -9,6 +9,8 @@ class BillHistoriesController < ApplicationController
     @bill_history = BillHistory.new(bill_history_params)
     @bill_history.bill_id = @bill.id
     @bill_history.save
+    @bill.due = @bill.due + 1.month
+    @bill.save
     @bill.reload
     render json: @bill.to_json(:methods => :last_payment)
   end

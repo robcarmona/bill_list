@@ -2,14 +2,13 @@
     var injectParams = [
       '$location',
       '$filter',
-      '$window',
       '$timeout',
       '$scope',
       '$routeParams',
       '$modal',
       '$http'];
 
-    var BillHistoryController = function ($location, $filter, $window, $timeout, $scope, $routeParams, $modal, $http) {
+    var BillHistoryController = function ($location, $filter, $timeout, $scope, $routeParams, $modal, $http) {
 
         function init() {
           console.log("modal init");

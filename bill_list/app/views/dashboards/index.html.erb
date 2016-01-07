@@ -31,29 +31,29 @@
 
           <div class="row">
             <div class="">
+
               <div class="col-xs-6 col-sm-6 col-md-6">
-                <!-- <img ng-src="{{ bill.logo_url }}" class="img-thumbnail bill-logo"> -->
+                <div class="">
+                  <a ng-href="{{ bill.company_url }}" target="_blank">
+                    <img ng-src="{{ bill.logo_url }}" class="img-thumbnail bill-logo">
+                  </a>
+                </div>
+                <div class="section-space">
+                  <a class="btn btn-success" ng-click="open('lg', bill, $index);">
+                    Declare Paid
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="cal-header">
                   <div>{{ bill.due | date: 'MMM'}}</div>
                 </div>
                 <div class="cal-body center-block">
                   <div>{{ bill.due | date: 'd'}}</div>
                 </div>
+              </div>
 
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="">
-                  <a ng-href="{{ bill.company_url }}" target="_blank" class="btn btn-default">
-                    Link
-                  </a>
-                </div>
-                <div class="section-space">
-                  <a class="btn btn-success" ng-click="open('lg', bill, $index);">
-                    <!-- <span class="glyphicon glyphicon-ok"></span> -->
-                    Declare Paid
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
 
