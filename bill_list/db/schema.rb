@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151031000017) do
 
   create_table "bills", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.datetime "due"
+    t.date     "due"
     t.datetime "created_at",                                                       null: false
     t.datetime "updated_at",                                                       null: false
     t.boolean  "active",      limit: 1,                             default: true
