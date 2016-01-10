@@ -21,11 +21,11 @@
 
   <div class="row" ng-controller="BillHistoryController">
 
-    <div ng-repeat="bill in bills.data" class="col-md-3 col-xs-6">
+    <div ng-repeat="bill in bills.data" class="col-md-4 col-xs-6">
       <div class="panel panel-primary bill-panel bill-due">
-        <div class="panel-heading">
+        <div class="panel-heading" ng-controller="BillController">
           <b class="panel-title"> {{ bill.name }} </b>
-          <span class="glyphicon glyphicon-cog pull-right bill-icon"></span>
+          <span ng-click="openEdit('lg', bill)" class="glyphicon glyphicon-cog pull-right bill-icon"></span>
         </div>
         <div class="panel-body">
 
@@ -52,7 +52,7 @@
                 <div>{{ bill.due | date: 'd'}}</div>
               </div>
             </div>
-            
+
           </div>
 
           <div class="section-space">

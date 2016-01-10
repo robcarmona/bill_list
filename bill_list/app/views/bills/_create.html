@@ -41,6 +41,17 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-xs-12 form-group">
+          <div class="col-xs-6">
+            <input type="checkbox"
+               ng-model="bill.active"
+               ng-true-value="'1'" ng-false-value="'0'"
+               ng-checked="bill.active == 1"> Active
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-orange" ng-disabled="form.$invalid">OK</button>

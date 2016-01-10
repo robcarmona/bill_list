@@ -18,6 +18,9 @@ class BillsController < ApplicationController
   end
 
   def update
+    if @bill.update_attributes(bill_params)
+      render json: bills_json
+    end
   end
 
   def partial
@@ -26,15 +29,16 @@ class BillsController < ApplicationController
 
   private
   def bill_params
-    params.require(:bill).permit(:name, :due, :user_id, :logo_url, :company_url, :amount)
+    params.require(:bill).permit(:name, :due, :user_id, :logo_url, :company_url, :amount, :active)
   end
 
   def bills_json
-    current_user.bills.to_json(:methods => :last_payment)
+    current_user.bills.where(active: true).to_json(:methods => :last_payment)
   end
 
   def set_bill
-    @bill = bill.find_by(id: params[:id])
+    #params[:bill][:due] = DateTime.strptime(params[:bill][:due], "%m/%d/%Y")
+    @bill = Bill.find_by(id: params[:id])
   end
 
 end
