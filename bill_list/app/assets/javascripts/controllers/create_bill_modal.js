@@ -12,13 +12,12 @@
     var BillController = function ($location, $filter, $window, $timeout, $scope, $routeParams, $modal, $http) {
 
         function init() {
-          console.log("modal init");
-          console.log($scope.bills);
+
         }
 
         // Open Event Modal
         $scope.open = function (size) {
-            $scope.bill = {};
+            $scope.bill = { active: true };
 
             var modalInstance = $modal.open({
                 animation: true,
@@ -41,7 +40,6 @@
         };
 
         $scope.openEdit = function(size, bill) {
-          console.log(bill);
           $scope.bill = bill;
 
           var modalInstance = $modal.open({
@@ -58,6 +56,8 @@
 
           // Create Event
           modalInstance.result.then(function () {
+            console.log($scope.bill);
+            debugger;
             $http.patch("/bills/"+ $scope.bill.id, { bill: $scope.bill }).then(function (results) {
               $scope.bills.data = results.data
             });
@@ -78,8 +78,6 @@
     var createBillParams = ['$scope', '$modalInstance', 'bill'];
     var ModalCreateBillInstanceCtrl = function ($scope, $modalInstance, bill) {
         $scope.bill = bill;
-        // Set default 0 if not defined
-        $scope.bill.active = ($scope.bill.active === 0 ? 0 : 1);
 
         // Create and close
         $scope.ok = function () {
