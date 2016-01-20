@@ -56,8 +56,6 @@
 
           // Create Event
           modalInstance.result.then(function () {
-            console.log($scope.bill);
-            debugger;
             $http.patch("/bills/"+ $scope.bill.id, { bill: $scope.bill }).then(function (results) {
               $scope.bills.data = results.data
             });
